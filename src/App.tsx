@@ -8,7 +8,6 @@ import { Numerology } from "./views/Numerology";
 import { Ball } from "./views/Ball";
 import { useEffect } from "react";
 import { useUser } from "./hooks/useUser";
-import requestStore from "./stores/requestStore";
 
 
 
@@ -19,7 +18,6 @@ import requestStore from "./stores/requestStore";
 
 const App = observer(() => {
 
-  if(requestStore.getCount() == 2) console.log('раюотает')
   useEffect(() => {
     async function fetchData() {
       const user = await vkBridge.send('VKWebAppGetUserInfo');

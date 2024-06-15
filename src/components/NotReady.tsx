@@ -7,15 +7,20 @@ export const NotReady = () => {
 
     const headStyle: React.CSSProperties = {
         color: '#CDB4DB',
-        margin: '5%'
+        margin: '5%',
+        textAlign: 'center',
+        marginBottom: '50px'
     }
 
     const buttonStyle: React.CSSProperties = {
         backgroundColor: "#FFC8DD",
-        color: 'black'
+        color: 'black',
+        width: '100px',
+        height: '40px',
+        fontSize: '20px'
     }
 
     return <>
-    <Title style={headStyle}>Эта страница пока находится в разработке</Title><Button type="primary" style={buttonStyle} onClick={()=> pageStore.setPage('home')}>Назад</Button>
+    <Title style={headStyle} >Эта страница пока находится в разработке</Title><Button type="primary" style={buttonStyle} onClick={()=> pageStore.setPage('home')}>Назад</Button>
     </> 
 }

@@ -7,7 +7,8 @@ import { makeAutoObservable } from "mobx"
     
 
     constructor() {
-        localStorage.setItem('count', '0')
+        const count = localStorage.getItem('count')
+        localStorage.setItem('count', count || '0')
         makeAutoObservable(this)
     }
 
