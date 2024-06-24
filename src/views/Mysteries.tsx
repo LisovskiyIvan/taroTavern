@@ -7,6 +7,7 @@ import {Loading} from "../components/Loading";
 import requestStore from "../stores/requestStore";
 import userStatusStore from "../stores/userStatusStore.ts";
 
+
 const buttonStyles: React.CSSProperties = {
     backgroundColor: "#FFC8DD",
     color: "black",
@@ -65,7 +66,9 @@ export const Mysteries = () => {
         while (true) {
             const r = await reader?.read();
             if (r?.done) break;
-
+            // let tr = await translate(JSON.stringify(r?.value).slice(34).split("").reverse().slice(5).reverse().join("").replaceAll("\\n\\n", "\n").replaceAll("\\n", "\n"), "en", "ru")
+            // console.log(tr)
+            // setData((prev) => prev + tr)
             setData(
                 (prev) =>
                     prev +
@@ -82,6 +85,8 @@ export const Mysteries = () => {
 
         }
     };
+
+
 
     const _handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
         if (e.key === "Enter") useFetchData().then(r => r);

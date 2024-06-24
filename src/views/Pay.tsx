@@ -3,19 +3,19 @@ import React, {useState} from "react";
 import vkBridge from "@vkontakte/vk-bridge";
 import {pageStore} from "../stores/pageStore";
 import userStatusStore from "../stores/userStatusStore.ts";
+import { LeftOutlined } from "@ant-design/icons";
 
 
 const buttonStyles: React.CSSProperties = {
     backgroundColor: "#FFC8DD",
     color: 'black',
-    width: '120px',
     fontSize: '18px'
 }
 
 
 export const Pay = () => {
 
-    const price = 199
+    const price = 29
     const [payStatus, setPayStatus] = useState(false)
     const payAccess = async () => {
 
@@ -44,8 +44,17 @@ export const Pay = () => {
                 <div className="text-violet phFont text-6xl mb-16 text-center">Оплата прошла успешно</div>
                 <Button style={buttonStyles} onClick={() => pageStore.setPage('home')}>На главную</Button></> : <><h1
                 className="text-violet phFont text-6xl mb-16">Оплата</h1>
-                <div className="text-white navFont text-lg sm:text-4xl mb-10">Сумма заказа: {price}</div>
+                <div className="text-white navFont text-lg sm:text-4xl mb-10 text-center">В бесплатном режиме установлен режим ограничения запросов. Сумма заказа: {price} голосов</div>
                 <Button style={buttonStyles} onClick={() => payAccess()}>Оплатить</Button></>}
+                <Button
+                onClick={() => pageStore.setPage("home")}
+                type="primary"
+                shape="circle"
+                className="w-10 h-10  absolute top-0 left-0 m-2 sm:m-6 text-md hover:scale-110 "
+                style={buttonStyles}
+            >
+                <LeftOutlined/>
+            </Button>
         </div>
     )
 }
